@@ -1,0 +1,33 @@
+name: Wake Up All Backends (Manual)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ping-all-backends:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping All 5 Render Services
+        run: |
+          echo "=========================================="
+          echo " Waking Up All 5 Portfolio Backends"
+          echo "=========================================="
+          
+          declare -A APPS=(
+            ["QuantTrade"]="https://quanttrade-api.onrender.com/"
+            ["SoundForge"]="https://soundforge-api.onrender.com/health"
+            ["MindFlow"]="https://mindflow-backend-tply.onrender.com/health"
+            ["CogniCare"]="https://cognicare-agpj.onrender.com/api/health"
+            ["FleetFlow"]="https://fleetflow-fh0s.onrender.com/"
+          )
+          
+          for name in "${!APPS[@]}"; do
+            url="${APPS[$name]}"
+            echo "Pinging $name -> $url"
+            status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 45 "$url")
+            echo "  [$name] HTTP Status: $status"
+          done
+          
+          echo "=========================================="
+          echo " All 5 backends are now awake!"
+          echo "=========================================="
