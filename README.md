@@ -28,11 +28,11 @@ When a prospective employer, interviewer, or reviewer visits a live frontend on 
 
 | Service | Architecture & Role | Production Endpoint | Health Path |
 | :--- | :--- | :--- | :--- |
-| **QuantTrade API** | Spring Boot Algorithmic Trading Engine | `https://quanttrade-api.onrender.com` | `/` |
+| **QuantTrade API** | Spring Boot Algorithmic Trading Engine | `https://quanttrade-api.onrender.com` | `/health` |
 | **SoundForge API** | Node.js / Express / Socket.io Audio Hub | `https://soundforge-api.onrender.com` | `/health` |
 | **MindFlow API** | Node.js / Gemini Vector Knowledge Graph | `https://mindflow-backend-tply.onrender.com` | `/health` |
 | **CogniCare API** | Node.js / Express / GridFS Medical Companion | `https://cognicare-agpj.onrender.com` | `/api/health` |
-| **FleetFlow Engine** | Spring Boot / Leaflet GIS Telematics Server | `https://fleetflow-fh0s.onrender.com` | `/` |
+| **FleetFlow Engine** | Spring Boot / Leaflet GIS Telematics Server | `https://fleetflow-fh0s.onrender.com` | `/health` |
 
 ---
 
@@ -123,4 +123,4 @@ curl -I -s --max-time 45 https://fleetflow-fh0s.onrender.com/
 
 ## 📄 License
 
-This repository is distributed under the [MIT License](LICENSE).
+This repository is distributed under the MIT License.
